@@ -14,7 +14,7 @@ public class Csiga {
     private boolean kapGyorsitot;
     private int maxSeb = 3;
     
-    public static String[] szinek = {"piros", "zold", "kek"};
+    public static String[] szinek = {"piros", "zöld", "kék"};
     
     public void setSebesseg() {
         sebesseg = rnd.nextInt(maxSeb)+1;
