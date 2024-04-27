@@ -21,6 +21,7 @@ public class Verseny {
     int gyorsEsely = 20;
     int kapGyorsitot = 0;
     int nyeroTav = 0;
+    boolean fogadoNyer = false;
 
     public Verseny() {
         kezdes();
@@ -28,9 +29,9 @@ public class Verseny {
 
     private void kezdes() {
 
-        Csiga csiga1 = new Csiga();
-        Csiga csiga2 = new Csiga();
-        Csiga csiga3 = new Csiga();
+        Csiga csiga1 = new Csiga("Piros");
+        Csiga csiga2 = new Csiga("Zöld");
+        Csiga csiga3 = new Csiga("Kék");
 
         int fogad = Verseny.rnd.nextInt(3);
 
@@ -70,26 +71,41 @@ public class Verseny {
             csiga3.setMessze();
 
             messze = new int[]{csiga1.getMessze(), csiga2.getMessze(), csiga3.getMessze()};
-            System.out.println("Távolság: " + Arrays.toString(messze));
+            System.out.print("Távolság: ");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(Csiga.szinek[j] + ": ");
+                System.out.print(messze[j] + " ; ");
+            }
+            
             if (kapGyorsitot > 0) {
-                System.out.println("Gyorsított csiga: " + Csiga.szinek[--kapGyorsitot]);
+                System.out.print("Gyorsított csiga: " + Csiga.szinek[--kapGyorsitot]);
                 kapGyorsitot = 0;
             }
             System.out.println(" ");
         }
-
+        /* A nyerõ távolság kiválasztása */
         for (int i = 0; i < 3; i++) {
             if (messze[i] > nyeroTav) {
                 nyeroTav = messze[i];
             }
         }
         System.out.print("A nyertes: ");
+        /* Ahol a nyerõ táv egyezik, ott nyertes van, több is lehet */
         for (int i = 0; i < 3; i++) {
             if (messze[i] == nyeroTav) {
                 System.out.print(Csiga.szinek[i] + " ");
+                if (i == fogad) {
+                    fogadoNyer = true;
+                }
             }
         }
-        System.out.println("");
+           System.out.println("");
+        if (fogadoNyer) {
+            System.out.println("A fogadó nyer!");
+        } else {
+            System.out.println("A fogadó veszít.");
+        }
+     
 
     }
 }
