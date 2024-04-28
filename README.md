@@ -1,5 +1,8 @@
 GDE - Elosztott Alkalmazások feladat
 
+Neptun kód: IZVQMA
+Név: Vékony Attila
+
 CsigaVerseny
 
 OOP alkalmazásával kell létrehozni a CsigaVerseny Java projektet.
