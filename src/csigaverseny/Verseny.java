@@ -56,7 +56,8 @@ public class Verseny {
             System.out.println("Körszám: " + (i + 1));
 
             /* Gyorsító esélyszámítás és beállítás */
-            if (Verseny.rnd.nextInt(100 / gyorsEsely) + 1 == 1) {
+            int gyorsitas = Verseny.rnd.nextInt(100 / gyorsEsely) + 1;
+            if ( gyorsitas == 1) {
                 kapGyorsitot = Verseny.rnd.nextInt(3) + 1;
             }
             if (kapGyorsitot == 1) {

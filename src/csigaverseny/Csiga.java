@@ -41,7 +41,7 @@ public class Csiga {
     public void setMessze() {
         messze = messzeOld + sebesseg;
         if (kapGyorsitot) {
-            messze = 2 * messze;
+            messze = messze + sebesseg;
         }
         messzeOld = messze;
         this.kapGyorsitot = false;
