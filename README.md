@@ -13,4 +13,5 @@ Szabályok:
 
 Netbeans output képernyő kép egy tipikus lefutással:
 
-![image](https://github.com/vekonyat/Csigaverseny/assets/59034700/5417118e-cd3a-4ad3-aa6e-a89e84bdaf4b)
+![image](https://github.com/vekonyat/Csigaverseny/assets/59034700/99c71961-cbc6-416e-85db-d65ed44c6a08)
+
