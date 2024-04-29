@@ -57,18 +57,19 @@ public class Verseny {
 
             /* Gyorsító esélyszámítás és beállítás */
             int gyorsitas = Verseny.rnd.nextInt(100 / gyorsEsely) + 1;
-            if ( gyorsitas == 1) {
+
+            if (gyorsitas == 1) {
                 kapGyorsitot = Verseny.rnd.nextInt(3) + 1;
             }
+
             if (kapGyorsitot == 1) {
                 csiga1.setKapGyorsitot(true);
-            }
-            if (kapGyorsitot == 2) {
+            } else if (kapGyorsitot == 2) {
                 csiga2.setKapGyorsitot(true);
-            }
-            if (kapGyorsitot == 3) {
+            } else if (kapGyorsitot == 3) {
                 csiga3.setKapGyorsitot(true);
             }
+
             /* Távszámítás, kiíratás*/
             csiga1.setMessze();
             csiga2.setMessze();
