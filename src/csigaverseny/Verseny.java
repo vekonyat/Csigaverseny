@@ -34,23 +34,9 @@ public class Verseny {
         Csiga csiga3 = new Csiga("Kék");
 
         int fogad = Verseny.rnd.nextInt(3);
-        /*Kezdõsebesség beállítása*/
-        csiga1.setSebesseg();
-        csiga2.setSebesseg();
-        csiga3.setSebesseg();
-
-        seb1 = csiga1.getSebesseg();
-        seb2 = csiga2.getSebesseg();
-        seb3 = csiga3.getSebesseg();
-
-        sebesseg = new int[]{seb1, seb2, seb3};
 
         System.out.println("Fogadás: " + Csiga.szinek[fogad]);
-
-        System.out.print("Csigák sebessége: ");
-        csigaKiir(Csiga.szinek, sebesseg);
-
-        System.out.println("\n");
+        System.out.println("");
 
         for (int i = 0; i < korok; i++) {
             System.out.println("Körszám: " + (i + 1));
@@ -70,17 +56,24 @@ public class Verseny {
                 csiga3.setKapGyorsitot(true);
             }
 
+            /* Sebesség kiszámítása */
+            kalkSebesseg(csiga1, csiga2, csiga3);
+
+            csigaKiir("Csigák sebessége: ", Csiga.szinek, sebesseg);
+            System.out.print("\n");
+
             /* Távszámítás, kiíratás*/
             csiga1.setMessze();
             csiga2.setMessze();
             csiga3.setMessze();
 
             messze = new int[]{csiga1.getMessze(), csiga2.getMessze(), csiga3.getMessze()};
-            System.out.print("Elért távolság: ");
-            csigaKiir(Csiga.szinek, messze);
+
+            csigaKiir("Elért távolság: ", Csiga.szinek, messze);
+            System.out.print("\n");
 
             if (kapGyorsitot > 0) {
-                System.out.print("Gyorsított csiga: " + Csiga.szinek[--kapGyorsitot]);
+                System.out.println("Gyorsított csiga: " + Csiga.szinek[--kapGyorsitot]);
                 kapGyorsitot = 0;
             }
             System.out.println(" ");
@@ -91,7 +84,8 @@ public class Verseny {
                 nyeroTav = messze[i];
             }
         }
-        System.out.print("\nA nyertes: ");
+        System.out.print("A nyertes: ");
+        
         /* Ahol a nyerõ táv egyezik, ott nyertes van, több is lehet + fogadó nyer-e */
         for (int i = 0; i < 3; i++) {
             if (messze[i] == nyeroTav) {
@@ -110,10 +104,26 @@ public class Verseny {
 
     }
 
-    private void csigaKiir(String[] szinek, int[] adatok) {
+    private void kalkSebesseg(Csiga csiga1, Csiga csiga2, Csiga csiga3) {
+        /*Csigasebesség beállítása*/
+        csiga1.setSebesseg();
+        csiga2.setSebesseg();
+        csiga3.setSebesseg();
+
+        seb1 = csiga1.getSebesseg();
+        seb2 = csiga2.getSebesseg();
+        seb3 = csiga3.getSebesseg();
+
+        sebesseg = new int[]{seb1, seb2, seb3};
+    }
+
+    private void csigaKiir(String szoveg, String[] szinek, int[] adatok) {
+        System.out.print(szoveg);
+
         for (int j = 0; j < 3; j++) {
             System.out.print(szinek[j] + ": ");
             System.out.print(adatok[j] + " ; ");
+
         }
     }
 }

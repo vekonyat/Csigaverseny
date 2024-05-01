@@ -10,6 +10,8 @@ public class Csiga {
     private int messze = 0;
     private int messzeOld = 0;
     private boolean kapGyorsitot = false;
+    private int maxSeb = 3;
+    public static String[] szinek = {"Piros", "Zöld", "Kék"};
 
     public boolean isKapGyorsitot() {
         return kapGyorsitot;
@@ -18,9 +20,6 @@ public class Csiga {
     public void setKapGyorsitot(boolean kapGyorsitot) {
         this.kapGyorsitot = kapGyorsitot;
     }
-    private int maxSeb = 3;
-
-    public static String[] szinek = {"Piros", "Zöld", "Kék"};
 
     public Csiga(String szin) {
         this.szin = szin;
@@ -31,7 +30,10 @@ public class Csiga {
     }
 
     public void setSebesseg() {
-        sebesseg = rnd.nextInt(maxSeb) + 1;
+        sebesseg = rnd.nextInt(maxSeb + 1);
+        if (kapGyorsitot) {
+            sebesseg *= 2;
+        }
     }
 
     public int getSebesseg() {
@@ -40,9 +42,6 @@ public class Csiga {
 
     public void setMessze() {
         messze = messzeOld + sebesseg;
-        if (kapGyorsitot) {
-            messze = messze + sebesseg;
-        }
         messzeOld = messze;
         this.kapGyorsitot = false;
     }
